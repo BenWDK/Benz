@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vie">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="hwd83.css">
+        <title>Tặng mẹ yêu của tụi con</title>
+        <style>
+            body {
+                background-color: #fff5f8;
+                overflow: hidden;
+            }
+            .mom-image {
+                width: 200px;
+                display: block;
+                margin: 0 auto;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            .heart-effect {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+            }
+            .heart-effect span {
+                position: absolute;
+                display: inline-block;
+                font-size: 25px;
+                animation: floatUp 6s ease-in-out infinite;
+                opacity: 0.9;
+            }
+            @keyframes floatUp {
+                0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-10vh) scale(1.5) rotate(360deg); opacity: 0; }
+            }
+            .glow {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: radial-gradient(circle, rgba(255,183,197,0.5) 0%, rgba(255,183,197,0) 70%);
+                animation: glowEffect 5s linear infinite;
+            }
+            @keyframes glowEffect {
+                0% { transform: scale(1); opacity: 0.8; }
+                50% { transform: scale(1.5); opacity: 0.5; }
+                100% { transform: scale(2); opacity: 0; }
+            }
+        </style>
+    </head>
+    <body>
+        <p class="instruction">Nhấn vào hình trái tim nha mẹ!</p>
+        <div class="container">
+            <label>
+                <div class="heart" onclick="showHearts()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg"></img>
+                </div>
+                <input id="messageState" type="checkbox" style="display:none"/>
+            </label>
+            
+            <div class="message">
+                <h1 style="font-family: Cinzel, serif; font-size: 40px; letter-spacing: 1.2px;"> DEAR MẸ NGA,</h1>
+                <img src="meyeu1.JPG" alt="Mẹ yêu" class="mom-image">
+                <p> 
+                    <span>
+                        &emsp; Hôm nay là một ngày đặc biệt – ngày để tôn vinh người phụ nữ tuyệt vời nhất của gia đình mình. Tụi con biết rằng không gì có thể sánh được với tình yêu thương bao la mà mẹ đã dành cho tụi con suốt những năm tháng qua.
+                    </span>
+                    <br> <br>
+                    <span>
+                        &emsp; Cảm ơn mẹ vì tất cả – vì sự hy sinh, sự chăm sóc và những điều nhỏ bé mà mẹ luôn làm vì tụi con. Hôm nay, tụi con gửi đến mẹ những bó hoa tươi thắm, cùng với tấm lòng yêu thương vô bờ. Mong rằng mẹ luôn vui vẻ, hạnh phúc và tận hưởng những điều tốt đẹp nhất trong cuộc sống
+                    </span>      
+                </p>
+                <br>
+                <div class="sincere">
+                    <p style="font-weight: bold;">With Love,</p>
+                    <p>VN LAGOM FAMILY</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="heart-effect" id="heartEffect"></div>
+        
+        <script>
+            function showHearts() {
+                const heartContainer = document.getElementById("heartEffect");
+                const symbols = ['❤️', '💖', '💐', '🌸', '🌷', '🌹', '🌻', '🌼', '🌺'];
+                for (let i = 0; i < 20; i++) {
+                    let heart = document.createElement("span");
+                    heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                    heart.style.left = Math.random() * 100 + "vw";
+                    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                    heartContainer.appendChild(heart);
+                    setTimeout(() => heart.remove(), 6000);
+                }
+                for (let i = 0; i < 5; i++) {
+                    let glow = document.createElement("div");
+                    glow.classList.add("glow");
+                    glow.style.left = Math.random() * 100 + "vw";
+                    glow.style.top = Math.random() * 100 + "vh";
+                    glow.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                    document.body.appendChild(glow);
+                    setTimeout(() => glow.remove(), 6000);
+                }
+            }
+        </script>
+        
+        <script src="jquery.js"></script>
+        <script src="jquery2.1.js"></script>
+        <script defer src="hwd83.js"></script>
+    </body>
+</html>
